@@ -16,8 +16,8 @@
         },  
         "28-0315a4b625ff": {
             "type": "ds18b20",
-            "name": "two",
-            "description": "two sensor",
+            "name": "external",
+            "description": "external, waterproof sensor",
             "path": "28-0315a4b625ff"
         }
     }
