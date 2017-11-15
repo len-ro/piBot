@@ -1,5 +1,5 @@
 {
-    "timeout": 5,
+    "timeout": 10,
     "csv-db": "data.csv",
     "sensors": {
         "28-0115926cbfff": {
