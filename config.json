@@ -1,0 +1,24 @@
+{
+    "timeout": 5,
+    "csv-db": "data.csv",
+    "sensors": {
+        "28-0115926cbfff": {
+            "type": "ds18b20",
+            "name": "one",
+            "description": "one sensor",
+            "path": "28-0115926cbfff"
+        },
+        "28-0315937bc3ff": {
+            "type": "ds18b20",
+            "name": "board",
+            "description": "Sensor on extension board, near rPi",
+            "path": "28-0315937bc3ff"
+        },  
+        "28-0315a4b625ff": {
+            "type": "ds18b20",
+            "name": "two",
+            "description": "two sensor",
+            "path": "28-0315a4b625ff"
+        }
+    }
+}
