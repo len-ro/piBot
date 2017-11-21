@@ -1,7 +1,29 @@
 {
     "timeout": 600,
-    "csv-db": "data.csv",
+    "outputs": {
+        "csv": {
+            "type": "csvdb",
+            "file": "data.csv",
+            "dialect": "excel", 
+            "active": "true"
+        },
+        "pgsql": {
+            "type": "pgsql",
+            "dbname": "piBot",
+            "user": "piBot",
+            "password": "simple",
+            "host": "10.8.0.1",
+            "port": "5432",
+            "active": "true"
+        }
+    },
     "sensors": {
+        "thermal": {
+            "type": "thermal",
+            "name": "pi",
+            "description": "pi board temperature",
+            "path": "thermal_zone0"
+        },
         "28-0115926cbfff": {
             "type": "ds18b20",
             "name": "one",
@@ -13,7 +35,7 @@
             "name": "board",
             "description": "Sensor on extension board, near rPi",
             "path": "28-0315937bc3ff"
-        },  
+        },
         "28-0315a4b625ff": {
             "type": "ds18b20",
             "name": "external",

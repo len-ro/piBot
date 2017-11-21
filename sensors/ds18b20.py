@@ -1,5 +1,7 @@
 import time
+
 class ds18b20:
+    """reads ds18b20 bus sensor data (temperature)"""
 
     def __init__(self, config):
         self.config = config

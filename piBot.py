@@ -5,9 +5,11 @@ import signal
 import os
 import time
 import datetime
+import sys
 
 config = {}
-modules = {}
+sensors = {}
+outputs = {}
 
 class signal_catcher:
     kill_now = False
@@ -19,51 +21,75 @@ class signal_catcher:
     def exit_gracefully(self, signum, frame):
         self.kill_now = True
 
-def import_modules():
-    """ Imports needed modules based on config """
-    for sensor in config['sensors']:
-        s_config = config['sensors'][sensor]
-        s_config['id'] = sensor
-        s_type = s_config['type']
-        print('Configuring', sensor, s_type)
-        if not modules.has_key(s_type):
-            module = __import__(s_type)
-            m_class = getattr(module, s_type)
-            modules[s_type] = m_class
-            s_config['class'] = m_class(s_config)
-        else:
-            s_config['class'] = modules[s_type](s_config)
+class piBot:
 
+    def __init__(self):
+        self.config = json.load(open('config.json', 'r'))
+        self.sensors = {}
+        self.outputs = {}
 
-def monitor():
-    import_modules()
-    killer = signal_catcher()
+    def import_modules(self, type):
+        """ Imports needed modules based on config """
+        sys.path.append(type) #https://stackoverflow.com/questions/25997185/python-importerror-import-by-filename-is-not-supported
+        for module in self.config[type]:
+            m_config = self.config[type][module]
+            m_config['id'] = module
+            m_type = m_config['type']
+            print('Configuring module', type, module, m_type)
+            loaded_modules = self.__dict__[type]
+            if not loaded_modules.has_key(m_type):
+                module = __import__(m_type)
+                m_class = getattr(module, m_type)
+                loaded_modules[m_type] = m_class
+                m_config['class'] = m_class(m_config)
+            else:
+                m_config['class'] = loaded_modules[m_type](m_config)
 
-    with open(config['csv-db'], 'ab') as csvfile:
-        csvwriter = csv.writer(csvfile, dialect='excel')
+    def output_method(self, method, args):
+        for output in self.config['outputs']:
+            output_config = self.config['outputs'][output]
+            if output_config['active'] == 'true':
+                try:
+                    getattr(output_config['class'], method)(*args)
+                except:
+                    print("Unexpected error:", sys.exc_info()[0])
+
+    def monitor(self):
+        print('piBot start')
+        self.import_modules('sensors')
+        self.import_modules('outputs')
+        killer = signal_catcher()
+
+        """open active outputs"""
+        self.output_method('open', ())
+
+        """main loop"""
         while True:
             if killer.kill_now:
                 break
-            now = datetime.datetime.utcnow()
+
+            now = datetime.datetime.now()
             now_s = now.strftime("%Y-%m-%d %H:%M:%S")
             rows = []
             s_param = {'ts': now_s}
 
-            for sensor in config['sensors']:
-                s_config = config['sensors'][sensor]
+            for sensor in self.config['sensors']:
+                s_config = self.config['sensors'][sensor]
                 s_data = s_config['class'].read(s_param)
                 print(s_data)
                 rows.append(s_data)
+            
+            self.output_method('write', [rows])
 
-            csvwriter.writerows(rows)
-            csvfile.flush()
-            os.fsync(csvfile.fileno())
-            time.sleep(config['timeout'])
-        csvfile.close()
+            time.sleep(self.config['timeout'])
+
+
+        """close active outputs"""
+        self.output_method('close', ())
+
         print('piBot end')
 
 
 if __name__ == '__main__':
-    print('piBot started')
-    config = json.load(open('config.json', 'r'))
-    monitor()
+    piBot = piBot()    
+    piBot.monitor()
