@@ -31,4 +31,4 @@ PiBot is a python main loop which has a plugin mechanism for sensors and outputs
 
 ## Grafana output
 
-! [grafana](https://www.len.ro/wp-content/uploads/2017/11/Selection_183.png "piBot grafana output)
+![grafana](https://www.len.ro/wp-content/uploads/2017/11/Selection_183.png "piBot grafana output")
