@@ -5,7 +5,7 @@ import signal
 import os
 import time
 import datetime
-import logging
+import logging, logging.config
 import sys
 
 config = {}
@@ -41,7 +41,7 @@ class piBot:
             m_config = self.config[type][module]
             m_config['id'] = module
             m_type = m_config['type']
-            self.logger.info('Configuring module', type, module, m_type)
+            self.logger.info('Configuring module %s %s %s' % (type, module, m_type))
             loaded_modules = self.__dict__[type]
             if not loaded_modules.has_key(m_type):
                 module = __import__(m_type)
