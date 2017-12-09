@@ -11,6 +11,6 @@ if __name__ == '__main__':
     with open('data.csv', 'r') as csvfile:
         csvreader = csv.reader(csvfile, dialect='excel')
         for row in csvreader:  
-            print('.', flush=True)
+            print('.', end='', flush=True)
             db.write([row])
     db.close()
