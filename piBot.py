@@ -1,10 +1,11 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import json
 import csv
 import signal
 import os
 import time
 import datetime
+import logging
 import sys
 
 config = {}
@@ -27,6 +28,11 @@ class piBot:
         self.config = json.load(open('config.json', 'r'))
         self.sensors = {}
         self.outputs = {}
+        self.setup_logging()
+
+    def setup_logging(self):
+        logging.config.dictConfig(self.config['logging'])
+        self.logger = logging.getLogger('piBot')
 
     def import_modules(self, type):
         """ Imports needed modules based on config """
@@ -35,7 +41,7 @@ class piBot:
             m_config = self.config[type][module]
             m_config['id'] = module
             m_type = m_config['type']
-            print('Configuring module', type, module, m_type)
+            self.logger.info('Configuring module', type, module, m_type)
             loaded_modules = self.__dict__[type]
             if not loaded_modules.has_key(m_type):
                 module = __import__(m_type)
@@ -52,10 +58,10 @@ class piBot:
                 try:
                     getattr(output_config['class'], method)(*args)
                 except:
-                    print("Unexpected error:", sys.exc_info()[0])
+                    self.logger.error("Unexpected error:", sys.exc_info()[0])
 
     def monitor(self):
-        print('piBot start')
+        self.logger.info('piBot start')
         self.import_modules('sensors')
         self.import_modules('outputs')
         killer = signal_catcher()
@@ -76,7 +82,7 @@ class piBot:
             for sensor in self.config['sensors']:
                 s_config = self.config['sensors'][sensor]
                 s_data = s_config['class'].read(s_param)
-                print(s_data)
+                self.logger.info(s_data)
                 rows.append(s_data)
             
             self.output_method('write', [rows])
@@ -87,7 +93,7 @@ class piBot:
         """close active outputs"""
         self.output_method('close', ())
 
-        print('piBot end')
+        self.logger.info('piBot end')
 
 
 if __name__ == '__main__':
