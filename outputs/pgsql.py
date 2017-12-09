@@ -15,7 +15,8 @@ class pgsql:
         for row in rows:
             if not row[-1] == 'NO-DATA':
                 #do not insert NO-DATA, only valid values
-                self.cur.execute("""insert into sensor_data(capture_time, id, name, value) values (%s, %s, %s, %s)""", row)
+                #do nothing on conflict to allow inserting of old data, see https://stackoverflow.com/questions/4069718/postgres-insert-if-does-not-exist-already
+                self.cur.execute("""insert into sensor_data(capture_time, id, name, value) values (%s, %s, %s, %s) on conflict do nothing""", row)
         self.conn.commit()
     
     def close(self):
