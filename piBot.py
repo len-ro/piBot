@@ -58,7 +58,7 @@ class piBot:
                 try:
                     getattr(output_config['class'], method)(*args)
                 except:
-                    self.logger.error("Unexpected error", exc_info[1])
+                    self.logger.error("Unexpected error", exc_info =1)
 
     def monitor(self):
         self.logger.info('piBot start')
