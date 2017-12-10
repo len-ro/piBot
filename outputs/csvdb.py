@@ -16,7 +16,7 @@ class csvdb:
         self.day = now.day
         file_name = now.strftime(self.config['file']) 
         self.logger.info("writing to %s", file_name)
-        self.csv_file = open(file_name, 'abt')
+        self.csv_file = open(file_name, 'at')
         self.csv_writer = writer(self.csv_file, dialect = self.config['dialect'])
 
     def write(self, rows):
