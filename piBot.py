@@ -43,7 +43,7 @@ class piBot:
             m_type = m_config['type']
             self.logger.info('Configuring module %s %s %s', module_type, module, m_type)
             loaded_modules = self.__dict__[module_type]
-            if not loaded_modules.has_key(m_type):
+            if not m_type in loaded_modules:
                 module = __import__(m_type)
                 m_class = getattr(module, m_type)
                 loaded_modules[m_type] = m_class
