@@ -34,15 +34,15 @@ class piBot:
         logging.config.dictConfig(self.config['logging'])
         self.logger = logging.getLogger('piBot')
 
-    def import_modules(self, type):
+    def import_modules(self, module_type):
         """ Imports needed modules based on config """
-        sys.path.append(type) #https://stackoverflow.com/questions/25997185/python-importerror-import-by-filename-is-not-supported
-        for module in self.config[type]:
-            m_config = self.config[type][module]
+        sys.path.append(module_type) #https://stackoverflow.com/questions/25997185/python-importerror-import-by-filename-is-not-supported
+        for module in self.config[module_type]:
+            m_config = self.config[module_type][module]
             m_config['id'] = module
             m_type = m_config['type']
-            self.logger.info('Configuring module %s %s %s' % (type, module, m_type))
-            loaded_modules = self.__dict__[type]
+            self.logger.info('Configuring module %s %s %s', module_type, module, m_type)
+            loaded_modules = self.__dict__[module_type]
             if not loaded_modules.has_key(m_type):
                 module = __import__(m_type)
                 m_class = getattr(module, m_type)
@@ -58,7 +58,7 @@ class piBot:
                 try:
                     getattr(output_config['class'], method)(*args)
                 except:
-                    self.logger.error("Unexpected error:", sys.exc_info()[0])
+                    self.logger.error("Unexpected error: %s", sys.exc_info()[0])
 
     def monitor(self):
         self.logger.info('piBot start')
