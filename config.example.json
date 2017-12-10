@@ -1,9 +1,39 @@
 {
     "timeout": 600,
+    "logging": {
+        "version": 1,
+        "formatters": {
+            "piBot": {
+                "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+                "datefmt": "%Y-%m-%d %H:%M:%S"
+            }
+        },
+        "handlers": {
+            "default": { 
+                "level": "INFO",
+                "formatter": "piBot",
+                "class": "logging.StreamHandler"
+            },
+            "file": {
+                "class": "logging.handlers.RotatingFileHandler",
+                "formatter": "piBot",
+                "filename": "piBot.log",
+                "maxBytes": 1048576,
+                "backupCount": 10
+            }
+        },
+        "loggers": {
+            "": {
+                "handlers": ["file", "default"],
+                "level": "INFO",
+                "propagate": true
+            }
+        }
+    },
     "outputs": {
         "csv": {
             "type": "csvdb",
-            "file": "data.csv",
+            "file": "%Y%m%d-data.csv",
             "dialect": "excel", 
             "active": "true"
         },
