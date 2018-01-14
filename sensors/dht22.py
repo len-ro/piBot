@@ -18,6 +18,6 @@ class dht22:
         (because Linux can't guarantee the timing of calls to read the sensor). If this happens try again! """
         if humidity is not None and temperature is not None:
             print('Temp={0:0.1f}*  Humidity={1:0.1f}%'.format(temperature, humidity))
-            return [[data['ts'], self.config['id'] + '-t', self.config['name'], temperature], [data['ts'], self.config['id'] + '-h', self.config['name'], humidity]]    
+            return [[data['ts'], self.config['id'] + '-t', self.config['name'], round(temperature,2)], [data['ts'], self.config['id'] + '-h', self.config['name'], round(humidity,2)]]    
         else:
             return [[data['ts'], self.config['id'], self.config['name'], 'NO-DATA']]
