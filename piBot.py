@@ -83,7 +83,7 @@ class piBot:
                 s_config = self.config['sensors'][sensor]
                 s_data = s_config['class'].read(s_param)
                 self.logger.info(s_data)
-                rows.append(s_data)
+                rows.extend(s_data)
             
             self.output_method('write', [rows])
 

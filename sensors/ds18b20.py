@@ -8,7 +8,7 @@ class ds18b20:
         self.s_path = '/sys/bus/w1/devices/%s/w1_slave' % (self.config['path'])
 
     def read(self, data):
-        return [data['ts'], self.config['id'], self.config['name'], self.read_temp()]
+        return [[data['ts'], self.config['id'], self.config['name'], self.read_temp()]]
 
     def read_raw(self):
         """reads the raw content of sensor "file" """

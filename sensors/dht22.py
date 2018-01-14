@@ -6,7 +6,7 @@ class dht22:
 
     def __init__(self, config):
         self.config = config
-        self.pin = self.config['pin'])
+        self.pin = self.config['pin']
         self.sensor_type = 22 #DHT22 sensor
 
     def read(self, data):
@@ -20,4 +20,4 @@ class dht22:
             print('Temp={0:0.1f}*  Humidity={1:0.1f}%'.format(temperature, humidity))
             return [[data['ts'], self.config['id'] + '-t', self.config['name'], temperature], [data['ts'], self.config['id'] + '-h', self.config['name'], humidity]]    
         else:
-            return [data['ts'], self.config['id'], self.config['name'], 'NO-DATA']
+            return [[data['ts'], self.config['id'], self.config['name'], 'NO-DATA']]
