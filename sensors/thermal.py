@@ -8,7 +8,7 @@ class thermal:
         self.s_path = '/sys/class/thermal/%s/temp' % config['path']
 
     def read(self, data):
-        return ][data['ts'], self.config['id'], self.config['name'], self.read_temp()]]
+        return [[data['ts'], self.config['id'], self.config['name'], self.read_temp()]]
 
     def read_temp(self):
         """converts raw content of sensor "file" to temp data as float """
