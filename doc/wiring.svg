@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 744.09448819 1052.3622047"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="wiring.svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="331.9117"
+     inkscape:cy="619.60889"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer2"
+     showgrid="false"
+     inkscape:window-width="1871"
+     inkscape:window-height="1056"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="rPi B+"
+     inkscape:groupmode="layer"
+     id="layer1"
+     sodipodi:insensitive="true">
+    <image
+       sodipodi:absref="/home/len/piBot/doc/Raspberry-Pi-GPIO-Layout-Model-B-Plus-313x1024.png"
+       xlink:href="Raspberry-Pi-GPIO-Layout-Model-B-Plus-313x1024.png"
+       width="313"
+       height="1024"
+       preserveAspectRatio="none"
+       id="image4230"
+       x="240.64285"
+       y="6.0764771" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="wiring">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="514.16766"
+       y="77.564995"
+       id="text4255"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4257"
+         x="514.16766"
+         y="77.564995"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:21.25px;font-family:'Ubuntu Mono';-inkscape-font-specification:'Ubuntu Mono Bold'">VCC, DHT11 &amp; Relays</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4259"
+       y="76.554848"
+       x="143.44168"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:21.25px;font-family:'Ubuntu Mono';-inkscape-font-specification:'Ubuntu Mono Bold'"
+         y="76.554848"
+         x="143.44168"
+         id="tspan4261"
+         sodipodi:role="line">VCC, DS18B20</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="131.31984"
+       y="210.90514"
+       id="text4263"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4265"
+         x="131.31984"
+         y="210.90514"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:21.25px;font-family:'Ubuntu Mono';-inkscape-font-specification:'Ubuntu Mono Bold'">DATA, DS18B20</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4267"
+       y="165.44827"
+       x="528.30981"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:21.25px;font-family:'Ubuntu Mono';-inkscape-font-specification:'Ubuntu Mono Bold'"
+         y="165.44827"
+         x="528.30981"
+         id="tspan4269"
+         sodipodi:role="line">GND, DS18B20</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4271"
+       y="350.30618"
+       x="529.31995"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:21.25px;font-family:'Ubuntu Mono';-inkscape-font-specification:'Ubuntu Mono Bold'"
+         y="350.30618"
+         x="529.31995"
+         id="tspan4273"
+         sodipodi:role="line">GND, DHT11 &amp; Relays</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4277"
+       y="397.78336"
+       x="533.36053"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:21.25px;font-family:'Ubuntu Mono';-inkscape-font-specification:'Ubuntu Mono Bold'"
+         y="397.78336"
+         x="533.36053"
+         id="tspan4279"
+         sodipodi:role="line">DATA, Relay 1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="533.36053"
+       y="441.78336"
+       id="text4281"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4283"
+         x="533.36053"
+         y="441.78336"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:21.25px;font-family:'Ubuntu Mono';-inkscape-font-specification:'Ubuntu Mono Bold'">DATA, Relay 2</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4285"
+       y="305.80365"
+       x="147.58388"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:21.25px;font-family:'Ubuntu Mono';-inkscape-font-specification:'Ubuntu Mono Bold'"
+         y="305.80365"
+         x="147.58388"
+         id="tspan4287"
+         sodipodi:role="line">DATA, DHT11</tspan></text>
+  </g>
+</svg>
