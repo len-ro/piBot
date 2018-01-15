@@ -6,6 +6,7 @@ class pump:
     """
     starts relay based on start and stop temp by enabling GPIO pin
     see https://sourceforge.net/p/raspberry-gpio-python/wiki/BasicUsage/
+    and https://www.pololu.com/product/2485
     """
 
     def __init__(self, config):

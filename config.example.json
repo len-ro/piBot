@@ -41,8 +41,8 @@
             "type": "pgsql",
             "dbname": "piBot",
             "user": "piBot",
-            "password": "simple",
-            "host": "10.8.0.1",
+            "password": "******",
+            "host": "x.x.x.x",
             "port": "5432",
             "active": "true"
         }
@@ -71,6 +71,34 @@
             "name": "external",
             "description": "external, waterproof sensor",
             "path": "28-0315a4b625ff"
+        },
+        "28-0315a4f437ff": {
+            "type": "ds18b20",
+            "name": "puffer-up",
+            "description": "puffer up, waterproof sensor",
+            "path": "28-0315a4f437ff",
+            "trigger": {
+                "type": "pump",
+                "id": "pump",
+                "pin" : 23,
+                "startTemp" : 40,
+                "stopTemp": 30,
+                "active": true
+            }
+
+        },
+	    "28-0315a60553ff": {
+            "type": "ds18b20",
+            "name": "sus",
+            "description": "sus, langa clesti",
+            "path": "28-0315a60553ff"
+
+        },
+        "dht22": {
+            "type": "dht22",
+            "name": "casa",
+            "description": "rj45 plugged dht22 sensor, in casa",
+            "pin": 17
         }
     }
 }
