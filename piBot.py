@@ -67,8 +67,8 @@ class piBot:
 
     def close_triggers(self):
         """ triggers cleanup """
-        for t in self.triggers:
-            t['close']()
+        for key, trigger in self.triggers.items():
+            trigger.close()
 
     def monitor(self):
         self.logger.info('piBot start')
