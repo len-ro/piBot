@@ -67,8 +67,11 @@ class piBot:
 
     def close_triggers(self):
         """ triggers cleanup """
-        for key, trigger in self.triggers.items():
-            trigger.close()
+        for sensor, s_config in self.config['sensors'].items():
+            if 'trigger' in s_config:
+                trigger_config = s_config['trigger']
+                if trigger_config['active'] and 'class' in trigger_config:
+                    trigger_config['class'].close()
 
     def monitor(self):
         self.logger.info('piBot start')
@@ -99,7 +102,7 @@ class piBot:
                     if trigger_config['active']:
                         if 'class' not in trigger_config:
                             self.import_module('triggers', trigger_config)
-                        trigger_config['class'].trigger(s_data)
+                        s_data = trigger_config['class'].trigger(s_data)
                 rows.extend(s_data)
             
             self.output_method('write', [rows])
