@@ -37,7 +37,6 @@ class piBot:
 
     def import_modules(self, module_type):
         """ Imports needed modules based on config """
-        sys.path.append(module_type) #https://stackoverflow.com/questions/25997185/python-importerror-import-by-filename-is-not-supported
         for module in self.config[module_type]:
             m_config = self.config[module_type][module]
             m_config['id'] = module
@@ -49,6 +48,7 @@ class piBot:
         loaded_modules = self.__dict__[module_type]
         if not m_type in loaded_modules:
             self.logger.info('creating module %s %s', module_type, m_type)
+            sys.path.append(module_type) #https://stackoverflow.com/questions/25997185/python-importerror-import-by-filename-is-not-supported
             module = __import__(m_type)
             m_class = getattr(module, m_type)
             loaded_modules[m_type] = m_class
