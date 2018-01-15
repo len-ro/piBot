@@ -26,8 +26,10 @@ PiBot is a python main loop which has a plugin mechanism for sensors and outputs
 
 - sensor: ds18b20 which reads /sys/bus/w1/devices/%s/w1_slave data (sensor integration is present in the raspbian)
 - sensor: /sys/class/thermal/*/temp temperature for CPU temperature
+- sensor: dht22 which reads temperature and humidity
 - output: csv plain output
-- pgsql: postgresql output in grafana friendly format
+- output: postgresql output in grafana friendly format
+- trigger: starts a relay when the temperature is above a certain value to start a recirculating pump and stops the relay when the temperature is below a certain value
 
 ## Grafana output
 
