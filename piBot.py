@@ -98,7 +98,7 @@ class piBot:
                     trigger_config = s_config['trigger']
                     if trigger_config['active']:
                         if 'class' not in trigger_config:
-                            self.import_module('trigger', trigger_config)
+                            self.import_module('triggers', trigger_config)
                         else:
                             trigger_config['class'].trigger(s_data)
                 rows.extend(s_data)
